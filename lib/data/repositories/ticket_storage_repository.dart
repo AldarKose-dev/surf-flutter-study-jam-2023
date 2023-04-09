@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:surf_flutter_study_jam_2023/data/network/api/constant/endpoints.dart';
 import 'package:surf_flutter_study_jam_2023/data/network/api/services/dio_service.dart';
 
 abstract class TicketStorageRepository {
@@ -18,7 +17,7 @@ class TicketStorageRepositoryImpl implements TicketStorageRepository {
   @override
   Future<Response> getPdfByLink(
       urlOfPdf, Function(double) onProgressCallback) async {
-    final response = await dioService.downloadFromApi(
+    final response = await dioService.downloadFromNetwork(
       path: urlOfPdf,
       options: Options(
           responseType: ResponseType.bytes,

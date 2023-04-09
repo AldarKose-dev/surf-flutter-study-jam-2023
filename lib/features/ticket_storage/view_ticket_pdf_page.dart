@@ -12,6 +12,12 @@ class TicketPdfView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pop(),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(Icons.arrow_back),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
       body: BlocBuilder<TicketStorageCubit, TicketStorageState>(
         builder: (context, state) {
           return state.selectedTicketFile == null

@@ -6,7 +6,7 @@ import 'package:surf_flutter_study_jam_2023/theme.dart';
 import 'injector.dart';
 
 void main() async {
-  configureDependencies();
+  configureDependencies(); // инициализируем getIt
   runApp(const MyApp());
 }
 
@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+    return ScreenUtilInit( // plugin для адаптивной верстки 
       splitScreenMode: true,
       minTextAdapt: true,
-      designSize: const Size(375, 812),
+      designSize: const Size(375, 812), 
       builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
         theme: theme(),

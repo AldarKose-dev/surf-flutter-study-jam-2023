@@ -40,11 +40,16 @@ class _AddTicketModalState extends State<AddTicketModal> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 48.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         child: Form(
           key: form,
           child: Column(
             children: [
+              Text("Добавление билета",
+                  style: Theme.of(context).textTheme.displaySmall),
+              SizedBox(
+                height: 36.h,
+              ),
               TextFormField(
                 controller: textController,
                 decoration: const InputDecoration(

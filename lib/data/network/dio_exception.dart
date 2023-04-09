@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class DioExceptions implements Exception {
@@ -58,7 +57,6 @@ class DioExceptions implements Exception {
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             timeInSecForIosWeb: 2,
-            backgroundColor: Colors.purple,
             fontSize: 16);
         return error['message'];
     }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:injectable/injectable.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:surf_flutter_study_jam_2023/domain/entities/ordering.dart';
 import 'package:surf_flutter_study_jam_2023/domain/entities/ticket_model.dart';
 import 'package:surf_flutter_study_jam_2023/domain/services/ticket_storage_service.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/cubit/ticket_storage_state.dart';
@@ -54,9 +55,18 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
               path: r.toString(),
               ticketDownloadStatus: 2,
               downloadProgress: 1,
-              downloadDate: DateTime.now().millisecondsSinceEpoch ));
+              downloadDate: DateTime.now().millisecondsSinceEpoch));
       await getListOfTickets();
     });
+  }
+
+  void onOrderingChanged(Ordering ordering) async {
+    emit(state.copyWith(ordering: ordering));
+    try {
+      await getListOfTickets();
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> saveTicketToLocalDb(String urlOfPdf) async {
@@ -85,7 +95,7 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
 
   Future<void> getListOfTickets() async {
     try {
-      final tickets = await _ticketStorageService.getTickets();
+      final tickets = await _ticketStorageService.getTickets(state.ordering);
       emit(state.copyWith(listOfTickets: tickets));
     } catch (e) {
       print(e);

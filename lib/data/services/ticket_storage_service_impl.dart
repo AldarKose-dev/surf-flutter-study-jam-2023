@@ -8,6 +8,8 @@ import 'package:surf_flutter_study_jam_2023/data/repositories/ticket_storage_rep
 import 'package:surf_flutter_study_jam_2023/domain/entities/ticket_model.dart';
 import 'package:surf_flutter_study_jam_2023/domain/services/ticket_storage_service.dart';
 import 'package:path/path.dart' as path;
+import 'package:surf_flutter_study_jam_2023/domain/entities/ordering.dart'
+    as ordering;
 
 @Singleton(as: TicketStorageService)
 class TicketStorageServiceImpl implements TicketStorageService {
@@ -54,11 +56,27 @@ class TicketStorageServiceImpl implements TicketStorageService {
   }
 
   @override
-  Future<List<Ticket>> getTickets() async {
+  Future<List<Ticket>> getTickets(ordering.Ordering? orderBy) async {
     final db = await database;
-    List<Map<String, dynamic>> tickets = await db.query(
-      'tickets',
-    );
+    List<Map<String, dynamic>> tickets;
+    if (orderBy?.value == 'onlyDownloaded') {
+      tickets = await db.query(
+        'tickets',
+        where: 'ticketDownloadStatus = ?',
+        whereArgs: ['2'],
+      );
+    } else if (orderBy?.value == 'onlyNotDownloaded') {
+      tickets = await db.query(
+        'tickets',
+        where: 'ticketDownloadStatus = ?',
+        whereArgs: ['0'],
+      );
+    } else {
+      tickets = await db.query(
+        'tickets',
+        orderBy: '${orderBy!.value} ${orderBy.order}',
+      );
+    }
     return List.generate(
         tickets.length,
         (index) => Ticket(

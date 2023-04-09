@@ -7,13 +7,15 @@ abstract class Ordering with _$Ordering {
   const Ordering._();
   const factory Ordering.dateDownloadedAsc() = DateDownloadedAsc;
   const factory Ordering.dateDownloadedDsc() = DateDownloadedDsc;
-  const factory Ordering.downloadedFirst() = DownloadedFirst;
+  const factory Ordering.onlyDownloaded() = OnlyDownloaded;
+  const factory Ordering.onlyNotDownloaded() = OnlyNotDownloaded;
 
   String get value {
     return when(
       dateDownloadedAsc: () => 'downloadDate',
       dateDownloadedDsc: () => "downloadDate",
-      downloadedFirst: () => 'downloadDate',
+      onlyDownloaded: () => 'onlyDownloaded',
+      onlyNotDownloaded: () => 'onlyNotDownloaded',
     );
   }
 
@@ -21,7 +23,8 @@ abstract class Ordering with _$Ordering {
     return when(
       dateDownloadedAsc: () => 'ASC',
       dateDownloadedDsc: () => "DESC",
-      downloadedFirst: () => 'DESC',
+      onlyDownloaded: () => '',
+      onlyNotDownloaded: () => '',
     );
   }
 }

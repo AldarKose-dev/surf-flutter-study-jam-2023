@@ -20,21 +20,24 @@ mixin _$Ordering {
   TResult when<TResult extends Object?>({
     required TResult Function() dateDownloadedAsc,
     required TResult Function() dateDownloadedDsc,
-    required TResult Function() downloadedFirst,
+    required TResult Function() onlyDownloaded,
+    required TResult Function() onlyNotDownloaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? dateDownloadedAsc,
     TResult? Function()? dateDownloadedDsc,
-    TResult? Function()? downloadedFirst,
+    TResult? Function()? onlyDownloaded,
+    TResult? Function()? onlyNotDownloaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? dateDownloadedAsc,
     TResult Function()? dateDownloadedDsc,
-    TResult Function()? downloadedFirst,
+    TResult Function()? onlyDownloaded,
+    TResult Function()? onlyNotDownloaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +45,24 @@ mixin _$Ordering {
   TResult map<TResult extends Object?>({
     required TResult Function(DateDownloadedAsc value) dateDownloadedAsc,
     required TResult Function(DateDownloadedDsc value) dateDownloadedDsc,
-    required TResult Function(DownloadedFirst value) downloadedFirst,
+    required TResult Function(OnlyDownloaded value) onlyDownloaded,
+    required TResult Function(OnlyNotDownloaded value) onlyNotDownloaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult? Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult? Function(DownloadedFirst value)? downloadedFirst,
+    TResult? Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult? Function(OnlyNotDownloaded value)? onlyNotDownloaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult Function(DownloadedFirst value)? downloadedFirst,
+    TResult Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult Function(OnlyNotDownloaded value)? onlyNotDownloaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +125,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult when<TResult extends Object?>({
     required TResult Function() dateDownloadedAsc,
     required TResult Function() dateDownloadedDsc,
-    required TResult Function() downloadedFirst,
+    required TResult Function() onlyDownloaded,
+    required TResult Function() onlyNotDownloaded,
   }) {
     return dateDownloadedAsc();
   }
@@ -129,7 +136,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? dateDownloadedAsc,
     TResult? Function()? dateDownloadedDsc,
-    TResult? Function()? downloadedFirst,
+    TResult? Function()? onlyDownloaded,
+    TResult? Function()? onlyNotDownloaded,
   }) {
     return dateDownloadedAsc?.call();
   }
@@ -139,7 +147,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? dateDownloadedAsc,
     TResult Function()? dateDownloadedDsc,
-    TResult Function()? downloadedFirst,
+    TResult Function()? onlyDownloaded,
+    TResult Function()? onlyNotDownloaded,
     required TResult orElse(),
   }) {
     if (dateDownloadedAsc != null) {
@@ -153,7 +162,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult map<TResult extends Object?>({
     required TResult Function(DateDownloadedAsc value) dateDownloadedAsc,
     required TResult Function(DateDownloadedDsc value) dateDownloadedDsc,
-    required TResult Function(DownloadedFirst value) downloadedFirst,
+    required TResult Function(OnlyDownloaded value) onlyDownloaded,
+    required TResult Function(OnlyNotDownloaded value) onlyNotDownloaded,
   }) {
     return dateDownloadedAsc(this);
   }
@@ -163,7 +173,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult? Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult? Function(DownloadedFirst value)? downloadedFirst,
+    TResult? Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult? Function(OnlyNotDownloaded value)? onlyNotDownloaded,
   }) {
     return dateDownloadedAsc?.call(this);
   }
@@ -173,7 +184,8 @@ class _$DateDownloadedAsc extends DateDownloadedAsc {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult Function(DownloadedFirst value)? downloadedFirst,
+    TResult Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult Function(OnlyNotDownloaded value)? onlyNotDownloaded,
     required TResult orElse(),
   }) {
     if (dateDownloadedAsc != null) {
@@ -228,7 +240,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult when<TResult extends Object?>({
     required TResult Function() dateDownloadedAsc,
     required TResult Function() dateDownloadedDsc,
-    required TResult Function() downloadedFirst,
+    required TResult Function() onlyDownloaded,
+    required TResult Function() onlyNotDownloaded,
   }) {
     return dateDownloadedDsc();
   }
@@ -238,7 +251,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? dateDownloadedAsc,
     TResult? Function()? dateDownloadedDsc,
-    TResult? Function()? downloadedFirst,
+    TResult? Function()? onlyDownloaded,
+    TResult? Function()? onlyNotDownloaded,
   }) {
     return dateDownloadedDsc?.call();
   }
@@ -248,7 +262,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? dateDownloadedAsc,
     TResult Function()? dateDownloadedDsc,
-    TResult Function()? downloadedFirst,
+    TResult Function()? onlyDownloaded,
+    TResult Function()? onlyNotDownloaded,
     required TResult orElse(),
   }) {
     if (dateDownloadedDsc != null) {
@@ -262,7 +277,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult map<TResult extends Object?>({
     required TResult Function(DateDownloadedAsc value) dateDownloadedAsc,
     required TResult Function(DateDownloadedDsc value) dateDownloadedDsc,
-    required TResult Function(DownloadedFirst value) downloadedFirst,
+    required TResult Function(OnlyDownloaded value) onlyDownloaded,
+    required TResult Function(OnlyNotDownloaded value) onlyNotDownloaded,
   }) {
     return dateDownloadedDsc(this);
   }
@@ -272,7 +288,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult? Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult? Function(DownloadedFirst value)? downloadedFirst,
+    TResult? Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult? Function(OnlyNotDownloaded value)? onlyNotDownloaded,
   }) {
     return dateDownloadedDsc?.call(this);
   }
@@ -282,7 +299,8 @@ class _$DateDownloadedDsc extends DateDownloadedDsc {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult Function(DownloadedFirst value)? downloadedFirst,
+    TResult Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult Function(OnlyNotDownloaded value)? onlyNotDownloaded,
     required TResult orElse(),
   }) {
     if (dateDownloadedDsc != null) {
@@ -298,35 +316,35 @@ abstract class DateDownloadedDsc extends Ordering {
 }
 
 /// @nodoc
-abstract class _$$DownloadedFirstCopyWith<$Res> {
-  factory _$$DownloadedFirstCopyWith(
-          _$DownloadedFirst value, $Res Function(_$DownloadedFirst) then) =
-      __$$DownloadedFirstCopyWithImpl<$Res>;
+abstract class _$$OnlyDownloadedCopyWith<$Res> {
+  factory _$$OnlyDownloadedCopyWith(
+          _$OnlyDownloaded value, $Res Function(_$OnlyDownloaded) then) =
+      __$$OnlyDownloadedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DownloadedFirstCopyWithImpl<$Res>
-    extends _$OrderingCopyWithImpl<$Res, _$DownloadedFirst>
-    implements _$$DownloadedFirstCopyWith<$Res> {
-  __$$DownloadedFirstCopyWithImpl(
-      _$DownloadedFirst _value, $Res Function(_$DownloadedFirst) _then)
+class __$$OnlyDownloadedCopyWithImpl<$Res>
+    extends _$OrderingCopyWithImpl<$Res, _$OnlyDownloaded>
+    implements _$$OnlyDownloadedCopyWith<$Res> {
+  __$$OnlyDownloadedCopyWithImpl(
+      _$OnlyDownloaded _value, $Res Function(_$OnlyDownloaded) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DownloadedFirst extends DownloadedFirst {
-  const _$DownloadedFirst() : super._();
+class _$OnlyDownloaded extends OnlyDownloaded {
+  const _$OnlyDownloaded() : super._();
 
   @override
   String toString() {
-    return 'Ordering.downloadedFirst()';
+    return 'Ordering.onlyDownloaded()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DownloadedFirst);
+        (other.runtimeType == runtimeType && other is _$OnlyDownloaded);
   }
 
   @override
@@ -337,9 +355,10 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult when<TResult extends Object?>({
     required TResult Function() dateDownloadedAsc,
     required TResult Function() dateDownloadedDsc,
-    required TResult Function() downloadedFirst,
+    required TResult Function() onlyDownloaded,
+    required TResult Function() onlyNotDownloaded,
   }) {
-    return downloadedFirst();
+    return onlyDownloaded();
   }
 
   @override
@@ -347,9 +366,10 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? dateDownloadedAsc,
     TResult? Function()? dateDownloadedDsc,
-    TResult? Function()? downloadedFirst,
+    TResult? Function()? onlyDownloaded,
+    TResult? Function()? onlyNotDownloaded,
   }) {
-    return downloadedFirst?.call();
+    return onlyDownloaded?.call();
   }
 
   @override
@@ -357,11 +377,12 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? dateDownloadedAsc,
     TResult Function()? dateDownloadedDsc,
-    TResult Function()? downloadedFirst,
+    TResult Function()? onlyDownloaded,
+    TResult Function()? onlyNotDownloaded,
     required TResult orElse(),
   }) {
-    if (downloadedFirst != null) {
-      return downloadedFirst();
+    if (onlyDownloaded != null) {
+      return onlyDownloaded();
     }
     return orElse();
   }
@@ -371,9 +392,10 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult map<TResult extends Object?>({
     required TResult Function(DateDownloadedAsc value) dateDownloadedAsc,
     required TResult Function(DateDownloadedDsc value) dateDownloadedDsc,
-    required TResult Function(DownloadedFirst value) downloadedFirst,
+    required TResult Function(OnlyDownloaded value) onlyDownloaded,
+    required TResult Function(OnlyNotDownloaded value) onlyNotDownloaded,
   }) {
-    return downloadedFirst(this);
+    return onlyDownloaded(this);
   }
 
   @override
@@ -381,9 +403,10 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult? Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult? Function(DownloadedFirst value)? downloadedFirst,
+    TResult? Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult? Function(OnlyNotDownloaded value)? onlyNotDownloaded,
   }) {
-    return downloadedFirst?.call(this);
+    return onlyDownloaded?.call(this);
   }
 
   @override
@@ -391,17 +414,133 @@ class _$DownloadedFirst extends DownloadedFirst {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DateDownloadedAsc value)? dateDownloadedAsc,
     TResult Function(DateDownloadedDsc value)? dateDownloadedDsc,
-    TResult Function(DownloadedFirst value)? downloadedFirst,
+    TResult Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult Function(OnlyNotDownloaded value)? onlyNotDownloaded,
     required TResult orElse(),
   }) {
-    if (downloadedFirst != null) {
-      return downloadedFirst(this);
+    if (onlyDownloaded != null) {
+      return onlyDownloaded(this);
     }
     return orElse();
   }
 }
 
-abstract class DownloadedFirst extends Ordering {
-  const factory DownloadedFirst() = _$DownloadedFirst;
-  const DownloadedFirst._() : super._();
+abstract class OnlyDownloaded extends Ordering {
+  const factory OnlyDownloaded() = _$OnlyDownloaded;
+  const OnlyDownloaded._() : super._();
+}
+
+/// @nodoc
+abstract class _$$OnlyNotDownloadedCopyWith<$Res> {
+  factory _$$OnlyNotDownloadedCopyWith(
+          _$OnlyNotDownloaded value, $Res Function(_$OnlyNotDownloaded) then) =
+      __$$OnlyNotDownloadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnlyNotDownloadedCopyWithImpl<$Res>
+    extends _$OrderingCopyWithImpl<$Res, _$OnlyNotDownloaded>
+    implements _$$OnlyNotDownloadedCopyWith<$Res> {
+  __$$OnlyNotDownloadedCopyWithImpl(
+      _$OnlyNotDownloaded _value, $Res Function(_$OnlyNotDownloaded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnlyNotDownloaded extends OnlyNotDownloaded {
+  const _$OnlyNotDownloaded() : super._();
+
+  @override
+  String toString() {
+    return 'Ordering.onlyNotDownloaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnlyNotDownloaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dateDownloadedAsc,
+    required TResult Function() dateDownloadedDsc,
+    required TResult Function() onlyDownloaded,
+    required TResult Function() onlyNotDownloaded,
+  }) {
+    return onlyNotDownloaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dateDownloadedAsc,
+    TResult? Function()? dateDownloadedDsc,
+    TResult? Function()? onlyDownloaded,
+    TResult? Function()? onlyNotDownloaded,
+  }) {
+    return onlyNotDownloaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dateDownloadedAsc,
+    TResult Function()? dateDownloadedDsc,
+    TResult Function()? onlyDownloaded,
+    TResult Function()? onlyNotDownloaded,
+    required TResult orElse(),
+  }) {
+    if (onlyNotDownloaded != null) {
+      return onlyNotDownloaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DateDownloadedAsc value) dateDownloadedAsc,
+    required TResult Function(DateDownloadedDsc value) dateDownloadedDsc,
+    required TResult Function(OnlyDownloaded value) onlyDownloaded,
+    required TResult Function(OnlyNotDownloaded value) onlyNotDownloaded,
+  }) {
+    return onlyNotDownloaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DateDownloadedAsc value)? dateDownloadedAsc,
+    TResult? Function(DateDownloadedDsc value)? dateDownloadedDsc,
+    TResult? Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult? Function(OnlyNotDownloaded value)? onlyNotDownloaded,
+  }) {
+    return onlyNotDownloaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DateDownloadedAsc value)? dateDownloadedAsc,
+    TResult Function(DateDownloadedDsc value)? dateDownloadedDsc,
+    TResult Function(OnlyDownloaded value)? onlyDownloaded,
+    TResult Function(OnlyNotDownloaded value)? onlyNotDownloaded,
+    required TResult orElse(),
+  }) {
+    if (onlyNotDownloaded != null) {
+      return onlyNotDownloaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnlyNotDownloaded extends Ordering {
+  const factory OnlyNotDownloaded() = _$OnlyNotDownloaded;
+  const OnlyNotDownloaded._() : super._();
 }

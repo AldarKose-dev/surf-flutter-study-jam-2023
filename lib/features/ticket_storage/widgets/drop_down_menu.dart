@@ -20,7 +20,7 @@ class DropDownMenu extends StatelessWidget {
         return DropdownButtonHideUnderline(
           child: DropdownButton(
               borderRadius: BorderRadius.circular(12.r),
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineSmall,
               icon: Icon(
                 CupertinoIcons.chevron_up_chevron_down,
                 size: 16.h,
