@@ -5,6 +5,8 @@ import 'package:surf_flutter_study_jam_2023/data/network/api/services/dio_servic
 
 import '../../dio_exception.dart';
 
+// Класс DioServiceImpl реализует интерфейс DioService в качестве экземпляра singleton.
+// юзаем его для обработки сетевых запросов с использованием библиотеки Dio.
 @Singleton(as: DioService)
 class DioServiceImpl implements DioService {
   DioServiceImpl(this.dioRepository);

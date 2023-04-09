@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'ordering.freezed.dart';
-
+// класс нужен чтобы брать тип сортировки билетов
 @freezed
 abstract class Ordering with _$Ordering {
   const Ordering._();

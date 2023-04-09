@@ -3,7 +3,11 @@ import 'package:surf_flutter_study_jam_2023/domain/entities/enums/ticket_downloa
 
 part 'ticket_model.freezed.dart';
 part 'ticket_model.g.dart';
-
+/*
+Ticket используется для хранения информации о билетах в бдщке,
+ а также для отображения этой информации на экране пользователю. 
+ Он работает с базой данных sqflite, чтобы хранить и получать данные о билетах.
+*/
 @freezed
 class Ticket with _$Ticket {
   const factory Ticket(
