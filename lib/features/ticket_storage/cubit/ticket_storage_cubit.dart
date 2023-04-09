@@ -7,6 +7,7 @@ import 'package:surf_flutter_study_jam_2023/domain/entities/ordering.dart';
 import 'package:surf_flutter_study_jam_2023/domain/entities/ticket_model.dart';
 import 'package:surf_flutter_study_jam_2023/domain/services/ticket_storage_service.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/cubit/ticket_storage_state.dart';
+// кубит главной страницы по показу билетов
 
 @injectable
 class TicketStorageCubit extends Cubit<TicketStorageState> {
@@ -15,30 +16,29 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
       : super(const TicketStorageState()) {
     getListOfTickets();
   }
+  // Обработчик изменения URL PDF файла
   void onPdfUrlChanged(String value) {
     emit(
-      state.copyWith(urlOfPdf: value),
+      state.copyWith(urlOfPdf: value), // Изменение состояния: URL PDF файла
     );
   }
 
+  // Открытие PDF файла билета
   Future<void> openTicketPdf(Ticket ticketToShow) async {
     if (state.selectedTicketFile != null) {
+      // Если выбранный билет уже открыт, то его нужно закрыть
       emit(state.copyWith(selectedTicketFile: null));
     }
     print(ticketToShow);
-    emit(state.copyWith(selectedTicketFile: File(ticketToShow.path!)));
+    emit(state.copyWith(
+        selectedTicketFile: File(ticketToShow.path!))); // Открытие файла билета
   }
 
+  // Загрузка PDF файла билета
   Future<void> downloadPdf(Ticket ticketToDownload) async {
-    // var downloadingTicket = state.listOfTickets!
-    //     .indexWhere((element) => element == ticketToDownload);
     final pdf = await _ticketStorageService
         .downloadPdfByLink(ticketToDownload.url, (progress) {
-      // var newList = state.listOfTickets;
-      // Ticket newTicket = state.listOfTickets![downloadingTicket]
-      //     .copyWith(downloadProgress: progress);
-      // newList![downloadingTicket] = newTicket;
-      // emit(state.copyWith(listOfTickets: newList));
+      // Функция обратного вызова на каждое изменение состояния загрузки PDF файла
     });
     pdf.fold((l) {
       print(l);
@@ -55,20 +55,23 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
               path: r.toString(),
               ticketDownloadStatus: 2,
               downloadProgress: 1,
-              downloadDate: DateTime.now().millisecondsSinceEpoch));
-      await getListOfTickets();
+              downloadDate: DateTime.now()
+                  .millisecondsSinceEpoch)); // Сохранение пути загруженного PDF файла в базу данных
+      await getListOfTickets(); // Обновление списка билетов после загрузки
     });
   }
 
+  // Обработчик изменения сортировки списка билетов
   void onOrderingChanged(Ordering ordering) async {
-    emit(state.copyWith(ordering: ordering));
+    emit(state.copyWith(
+        ordering: ordering)); // Изменение состояния: сортировка списка билетов
     try {
-      await getListOfTickets();
+      await getListOfTickets(); // Обновление списка билетов после изменения сортировки
     } catch (e) {
       print(e);
     }
   }
-
+  // добавяляет билет в sqflte
   Future<void> saveTicketToLocalDb(String urlOfPdf) async {
     try {
       await _ticketStorageService.addNewTicket(
@@ -92,7 +95,7 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
           fontSize: 16);
     }
   }
-
+  // получаем список билетов из БД
   Future<void> getListOfTickets() async {
     try {
       final tickets = await _ticketStorageService.getTickets(state.ordering);
@@ -101,7 +104,7 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
       print(e);
     }
   }
-
+  // удаляет билет по  с БД
   Future<void> deleteTicket(Ticket ticket) async {
     try {
       await _ticketStorageService.deleteTicket(ticket);
@@ -115,15 +118,15 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
           fontSize: 16);
     }
   }
-
+  // Метод для того чтобы поделится билетом
   Future<void> shareTicket() async {
     await Share.shareXFiles([XFile(state.selectedTicketFile!.path)],
         text: 'Surf Jam is Cool!');
   }
-
+  // Метод для скачивания всех билетов
   Future<void> downloadAll() async {
     try {
-      bool noNeedToDownload =
+      bool noNeedToDownload = // проверка на то есть ли у них путь уже
           state.listOfTickets!.every((ticket) => ticket.path != null);
       if (noNeedToDownload) {
         Fluttertoast.showToast(
@@ -133,7 +136,7 @@ class TicketStorageCubit extends Cubit<TicketStorageState> {
             timeInSecForIosWeb: 2,
             fontSize: 16);
       } else {
-        await Future.wait(
+        await Future.wait( // через Future.wait выполняем лист запросов на скачку всех пдф
           state.listOfTickets!.map(
             (ticket) {
               return downloadPdf(ticket);

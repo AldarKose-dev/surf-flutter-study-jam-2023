@@ -16,9 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TicketStorageState {
-  String? get urlOfPdf => throw _privateConstructorUsedError;
-  List<Ticket>? get listOfTickets => throw _privateConstructorUsedError;
-  File? get selectedTicketFile => throw _privateConstructorUsedError;
+  String? get urlOfPdf =>
+      throw _privateConstructorUsedError; // ссылка введенная при добавлении пдф
+  List<Ticket>? get listOfTickets =>
+      throw _privateConstructorUsedError; // список билетов с БД
+  File? get selectedTicketFile =>
+      throw _privateConstructorUsedError; // выбранный пдф файл который нужно открыть
   Ordering get ordering => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -155,7 +158,9 @@ class _$_TicketStorageState implements _TicketStorageState {
 
   @override
   final String? urlOfPdf;
+// ссылка введенная при добавлении пдф
   final List<Ticket>? _listOfTickets;
+// ссылка введенная при добавлении пдф
   @override
   List<Ticket>? get listOfTickets {
     final value = _listOfTickets;
@@ -165,8 +170,10 @@ class _$_TicketStorageState implements _TicketStorageState {
     return EqualUnmodifiableListView(value);
   }
 
+// список билетов с БД
   @override
   final File? selectedTicketFile;
+// выбранный пдф файл который нужно открыть
   @override
   @JsonKey()
   final Ordering ordering;
@@ -216,11 +223,11 @@ abstract class _TicketStorageState implements TicketStorageState {
 
   @override
   String? get urlOfPdf;
-  @override
+  @override // ссылка введенная при добавлении пдф
   List<Ticket>? get listOfTickets;
-  @override
+  @override // список билетов с БД
   File? get selectedTicketFile;
-  @override
+  @override // выбранный пдф файл который нужно открыть
   Ordering get ordering;
   @override
   @JsonKey(ignore: true)

@@ -16,7 +16,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
   TicketStorageServiceImpl(this._ticketStorageRepository);
   final TicketStorageRepository _ticketStorageRepository;
   Database? _database;
-
+  // Метод для загрузки PDF-файла из Интернета по ссылке и сохранения его в приложении.
   @override
   Future<Either<String, String>> downloadPdfByLink(
       String urlOfPdf, Function(double) onProgressCallback) async {
@@ -33,6 +33,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
     }
   }
 
+// Метод для получения базы данных SQLite для хранения билетов.
   Future<Database> get database async {
     _database = await openDatabase(
         path.join(await getDatabasesPath(), 'jam.db'),
@@ -40,6 +41,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
         onCreate: _createDB);
     return _database!;
   }
+  // Метод для создания базы данных.
 
   Future<void> _createDB(Database db, int version) async {
     await db.execute('''
@@ -55,10 +57,12 @@ class TicketStorageServiceImpl implements TicketStorageService {
         ''');
   }
 
+  // Метод для получения списка билетов из базы данных.
   @override
   Future<List<Ticket>> getTickets(ordering.Ordering? orderBy) async {
     final db = await database;
     List<Map<String, dynamic>> tickets;
+    // здесь идет проверка на тип сортровки
     if (orderBy?.value == 'onlyDownloaded') {
       tickets = await db.query(
         'tickets',
@@ -69,7 +73,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
       tickets = await db.query(
         'tickets',
         where: 'ticketDownloadStatus = ?',
-        whereArgs: ['0'],
+        whereArgs: ['2'],
       );
     } else {
       tickets = await db.query(
@@ -88,6 +92,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
             ticketDownloadStatus: tickets[index]['ticketDownloadStatus']));
   }
 
+  // Метод для добавления нового билета в базу данных.
   @override
   Future<void> addNewTicket(Ticket ticket) async {
     final db = await database;
@@ -95,6 +100,7 @@ class TicketStorageServiceImpl implements TicketStorageService {
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
+  // Метод для обновления пути сохраненного PDF-файла для билета.
   @override
   Future<void> addPathToDownloadedTicketPdf(Ticket ticket) async {
     final db = await database;
