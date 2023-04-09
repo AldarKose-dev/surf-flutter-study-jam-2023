@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/ticket_storage_page.dart';
+import 'package:surf_flutter_study_jam_2023/theme.dart';
 
-void main() {
+import 'injector.dart';
+
+void main() async {
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -10,12 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      splitScreenMode: true,
+      minTextAdapt: true,
+      designSize: const Size(375, 812),
+      builder: (context, child) => MaterialApp(
+        title: 'Flutter Demo',
+        theme: theme(),
+        home: const TicketStoragePage(),
       ),
-      home: const TicketStoragePage(),
     );
   }
 }

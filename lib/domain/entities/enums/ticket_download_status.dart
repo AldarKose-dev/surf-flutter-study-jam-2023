@@ -1,0 +1,1 @@
+enum TicketDownloadStatus {waitingForDownload, downloading, downloaded}
