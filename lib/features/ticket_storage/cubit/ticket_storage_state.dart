@@ -12,6 +12,6 @@ class TicketStorageState with _$TicketStorageState {
     String? urlOfPdf,
     List<Ticket>? listOfTickets,
     File? selectedTicketFile,
-    @Default(Ordering.nameAsc()) Ordering ordering,
+    @Default(Ordering.dateDownloadedAsc()) Ordering ordering,
   }) = _TicketStorageState;
 }

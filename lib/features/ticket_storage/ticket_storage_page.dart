@@ -28,7 +28,6 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
         child: Text("По дате скачивания возрст"),
         value: Ordering.dateDownloadedDsc()),
   ];
-
   @override
   void initState() {
     super.initState();

@@ -150,7 +150,7 @@ class _$_TicketStorageState implements _TicketStorageState {
       {this.urlOfPdf,
       final List<Ticket>? listOfTickets,
       this.selectedTicketFile,
-      this.ordering = const Ordering.nameAsc()})
+      this.ordering = const Ordering.dateDownloadedAsc()})
       : _listOfTickets = listOfTickets;
 
   @override
