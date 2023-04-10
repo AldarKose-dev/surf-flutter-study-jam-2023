@@ -84,3 +84,4 @@ Dart SDK 2.19.6 (Flutter)
   flutter_slidable: виджет для удаления билета 
 
 # Ссылки на демонстрацию работы/скриншоты
+https://youtu.be/kVOaqkgm-UQ
